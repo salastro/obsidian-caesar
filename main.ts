@@ -13,7 +13,7 @@ export default class Caesar extends Plugin {
                 const selectedText: string = editor.getSelection();
                 console.log(selectedText);
                 new ShiftInput(this.app, (Shift) => {
-                    let caesarShift: number = parseInt(Shift);
+                    const caesarShift: number = parseInt(Shift);
                     const cipheredText: string = caesarCipher(selectedText, caesarShift);
                     console.log(cipheredText);
                     editor.replaceSelection(cipheredText);
@@ -30,7 +30,7 @@ export default class Caesar extends Plugin {
                 const selectedText: string = editor.getSelection();
                 console.log(selectedText);
                 new ShiftInput(this.app, (Shift) => {
-                    let caesarShift: number = parseInt(Shift);
+                    const caesarShift: number = parseInt(Shift);
                     const decipheredText: string = caesarDecipher(selectedText, caesarShift);
                     console.log(decipheredText);
                     editor.replaceSelection(decipheredText);
