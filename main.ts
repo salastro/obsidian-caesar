@@ -10,11 +10,11 @@ export default class Caesar extends Plugin {
             id: 'caesar-cipher-selected-text',
             name: 'Cipher selected text',
             editorCallback: (editor: Editor, view: MarkdownView) => {
-                const selectedText = editor.getSelection();
+                const selectedText: string = editor.getSelection();
                 console.log(selectedText);
                 new ShiftInput(this.app, (Shift) => {
                     let caesarShift: number = parseInt(Shift);
-                    const cipheredText = caesarCipher(selectedText, caesarShift);
+                    const cipheredText: string = caesarCipher(selectedText, caesarShift);
                     console.log(cipheredText);
                     editor.replaceSelection(cipheredText);
                     new Notice('Ciphered!');
@@ -27,11 +27,11 @@ export default class Caesar extends Plugin {
             id: 'caesar-decipher-selected-text',
             name: 'Decipher selected text',
             editorCallback: (editor: Editor, view: MarkdownView) => {
-                const selectedText = editor.getSelection();
+                const selectedText: string = editor.getSelection();
                 console.log(selectedText);
                 new ShiftInput(this.app, (Shift) => {
                     let caesarShift: number = parseInt(Shift);
-                    const decipheredText = caesarDecipher(selectedText, caesarShift);
+                    const decipheredText: string = caesarDecipher(selectedText, caesarShift);
                     console.log(decipheredText);
                     editor.replaceSelection(decipheredText);
                     new Notice('Deciphered!');
