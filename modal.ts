@@ -1,8 +1,14 @@
-export class shiftInput extends Modal {
-    shift: number;
-    onSubmit: (shift: number) => void;
+import { App, Modal, Setting } from "obsidian";
 
-    constructor(app: App, onSubmit: (shift: number) => void) {
+export class ShiftInput extends Modal {
+    Shift: number;
+
+    onSubmit: (Shift: number) => void;
+
+    constructor(
+        app: App,
+        onSubmit: (Shift: number) => void
+    ) {
         super(app);
         this.onSubmit = onSubmit;
     }
@@ -10,22 +16,28 @@ export class shiftInput extends Modal {
     onOpen() {
         const { contentEl } = this;
 
+        contentEl.createEl("h2", { text: "Cipher shift." });
+
         new Setting(contentEl)
         .setName("Shift")
-        .addText((text) =>
-                 text.onChange((value) => {
-                     this.shift = value
-                 }));
+        .addText(
+            (text) => text
+            .setValue(this.Shift)
+            .onChange((value) => {
+                this.Shift = value;
+            })
+        );
 
-                 new Setting(contentEl)
-                 .addButton((btn) =>
-                            btn
-                            .setButtonText("Submit")
-                            .setCta()
-                            .onClick(() => {
-                                this.close();
-                                this.onSubmit(this.shift);
-                            }));
+        new Setting(contentEl)
+        .addButton(
+            (btn) => btn
+            .setButtonText("Caesar!")
+            .setCta()
+            .onClick(() => {
+                this.close();
+                this.onSubmit(this.Shift);
+            })
+        );
     }
 
     onClose() {
@@ -33,4 +45,3 @@ export class shiftInput extends Modal {
         contentEl.empty();
     }
 }
-
