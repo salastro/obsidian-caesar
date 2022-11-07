@@ -1,6 +1,6 @@
 {
-	"id": "obsidian-caeser",
-	"name": "Caeser Cipher",
+	"id": "obsidian-caesar",
+	"name": "Caesar Cipher",
 	"version": "0.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Obsidian plugin to Caesar cipher notes.",
