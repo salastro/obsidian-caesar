@@ -16,7 +16,7 @@ export class ShiftInput extends Modal {
     onOpen() {
         const { contentEl } = this;
 
-        contentEl.createEl("h2", { text: "Cipher shift." });
+        contentEl.createEl("h2", { text: "" });
 
         new Setting(contentEl)
         .setName("Shift")
